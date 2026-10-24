@@ -6,7 +6,7 @@ flow downstream to training. Raises on failure to hard-stop the pipeline.
 """
 import argparse
 import logging
-import sys #interacts with the Python system
+import sys  # interacts with the Python system
 
 import pandas as pd
 
@@ -67,7 +67,6 @@ def validate(input_path: str) -> pd.DataFrame:
         len(df), df.shape[1]
     )
     return df
-    
 
 
 if __name__ == "__main__":
@@ -78,6 +77,6 @@ if __name__ == "__main__":
         validate(args.input)
     except DataValidationError as e:
         logger.error("Pipeline halted: %s", e)
-        sys.exit(1) #stops the Python program and reports that it failed.
+        sys.exit(1)  # stops the Python program and reports that it failed.
 # sys.exit(0) means: Program finished successfully.
 # sys.exit(1) means: Program ended with an error/failure.
